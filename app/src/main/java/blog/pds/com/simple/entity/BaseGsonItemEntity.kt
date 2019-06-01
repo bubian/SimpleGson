@@ -1,6 +1,9 @@
 package blog.pds.com.simple.entity
 
+import blog.pds.com.gson.adapter.JsonAdapterIDateDeserializer
+import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
 /**
  * @author: pengdaosong
@@ -33,6 +36,8 @@ open class BaseGsonItemEntity {
     var userAge: Int = -1
     var userSex: Int = -1
     var userId: Int = -1
+    @JsonAdapter(value = JsonAdapterIDateDeserializer::class)
+    lateinit var  date : Date
 
     override fun toString(): String {
         return "BaseGsonItemEntity(userName='$userName', userPhone='$userPhone', userAge=$userAge, userSex=$userSex, userId=$userId, timeStamp=$timeStamp, timeD=$timeD)"
