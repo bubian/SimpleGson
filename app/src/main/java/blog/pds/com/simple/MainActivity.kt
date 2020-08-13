@@ -7,6 +7,7 @@ import android.util.Log
 import blog.pds.com.gson.SimpleGson
 import blog.pds.com.simple.entity.BaseGsonItemEntity
 import blog.pds.com.simple.entity.JsonAdapterEntity
+import blog.pds.com.simple.entity.SimpleEntity
 import blog.pds.com.simple.entity.SinceUntilEntity
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +20,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val simpleEntity = simpleGson.fromJson(SimpleEntity.DATA, SimpleEntity::class.java)
+        Log.i(TAG,"fromJson:$simpleEntity")
 
         // @JsonAdapter注解使用
         val jsonAdapterEntity = simpleGson.fromJson<JsonAdapterEntity>(BaseGsonItemEntity.DATA,JsonAdapterEntity::class.java)

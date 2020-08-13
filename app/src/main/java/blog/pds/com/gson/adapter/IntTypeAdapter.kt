@@ -20,10 +20,10 @@ class IntTypeAdapter : TypeAdapter<Int>() {
             i.nextNull()
             return 0
         }
-        try {
-            return i.nextInt()
+        return try {
+            i.nextInt()
         } catch (e: Exception) {
-            return 0
+            0
         }
     }
 
